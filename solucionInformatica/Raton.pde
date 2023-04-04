@@ -7,7 +7,10 @@ void mousePressed(){
    }
   }
   else if(pantalla == PANTALLA.PRENDA){
-    //escoltar
+    if(botones[1].ratonSobreBoton() && botones[1].habilitado){
+      println(botones[1]+" pulsado");
+      pantalla = PANTALLA.INICIO;
+   }
   }
 //  Botones pulsados
   for (int i=0; i<botones.length; i++){

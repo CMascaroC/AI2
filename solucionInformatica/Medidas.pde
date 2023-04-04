@@ -27,3 +27,6 @@ float prendaAltura = 150,
       prendaTextoY = prendaMargenY+prendaAltura-65;
       
 float textoPrendaX = 550;
+
+float buttonW = 200;
+float buttonH = 80;
