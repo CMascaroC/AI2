@@ -29,4 +29,4 @@ float prendaAltura = 150,
 float textoPrendaX = 550;
 
 float buttonW = 200;
-float buttonH = 80;
+float buttonH = 60;

@@ -8,9 +8,7 @@ class PopUp {
  String title;
  String message;
  
- Boton bAceptar;
- 
- boolean visible = true;
+ boolean visible;
  
  // Constructor
  
@@ -19,7 +17,6 @@ class PopUp {
    this.message = message;
    this.x = x; this.y = y; 
    this.w = w; this.h = h;
-   this.bAceptar = new Boton("Acceptar", x + w/2 - buttonW/2, y + h - buttonH*1.5, buttonW, buttonH, 30);
  }
  
  //Setters
@@ -36,16 +33,16 @@ class PopUp {
  void setVisible(boolean b){
    this.visible = b;
    if(!this.visible){
-     this.bAceptar.asignarHabilitado(false);
+     botones[7].asignarHabilitado(false);
    }
    else {
-     this.bAceptar.asignarHabilitado(true);
+     botones[7].asignarHabilitado(true);
    }
  }
  
  // Dibuixa el PopUp
  
- void display(){
+ void dibujarPopUp(){
    
    if(this.visible){
      float b = 40;
@@ -53,8 +50,8 @@ class PopUp {
      pushStyle();
      
      // Rectangle
-     stroke(0); strokeWeight(10);fill(200, 200, 100);
-     rect(x, y, w, h, b/2);
+     stroke(0); strokeWeight(3); fill(colores[3]);
+     rect(x, y, w, h, 10);
      
      line(x, y + 2*b , x+w, y + 2*b);
      
@@ -63,11 +60,11 @@ class PopUp {
      text(title, x + b, y + 1.4*b);
      
      // Missatge
-     fill(0);textSize(24); textAlign(CENTER);
+     fill(0);textSize(30); textAlign(CENTER);
      text(message, x + w/2, y + 4*b);
      
      // Botó d'Acceptar
-     bAceptar.dibujarBoton();
+     botones[7].dibujarBoton();
      popStyle();
    }
  }
