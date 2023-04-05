@@ -29,6 +29,7 @@ class ListaColoresDisponibles{
         ellipse(x + (2*r - 100)*i, y, 2*r, 2*r);
         fill(0); textAlign(CENTER); textSize(24);
         text (disponibilidad[i], x+(2*r-100)*i, y+2*r+20);
+       // text (tallas[i], x+(2*r-100)*i, y+2*r+20+50);
       }
     popStyle();
   }

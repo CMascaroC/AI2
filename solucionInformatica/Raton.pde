@@ -11,6 +11,11 @@ void mousePressed(){
       println(botones[1]+" pulsado");
       pantalla = PANTALLA.INICIO;
    }
+   
+   if(botones[6].ratonSobreBoton() && botones[6].habilitado){
+      println(botones[6]+" pulsado");
+      
+   }
   }
 //  Botones pulsados
   for (int i=0; i<botones.length; i++){

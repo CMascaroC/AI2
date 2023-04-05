@@ -2,6 +2,7 @@
 Prenda p1, p2, p3, p4;
 Boton[] botones;
 
+
 color[] colors = {color(0), color(255), color(0, 0, 255), color(0, 255, 0), color(255, 0, 0)};
 int[] cantidades = {10, 20, 7, 3, 9};
 String[] tallas = {"S", "M", "L", "XL", "XXL"};
