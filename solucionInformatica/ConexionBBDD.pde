@@ -23,22 +23,12 @@ void conectarBBDD() {
     // La connexió ha fallat!!!
     println("Connection failed !");
   }
+ // String [][] colores = selectTablaColor();
+  //ImprimirTabla(colores);
 }
 
-/*
-String[][] getInfoPrenda(String idModel){
-  
-  int numRows = getNumRows("model");
-  
-  String[][] data = new String[numRows][4];
-  String q ="SELECT * FROM model WHERE idmodel='"+idModel+"'";
-  msql.query(q);
-  int nr=0;
-  while(msql.next()){
-    data[nr][0] = String.valueOf(msql.getInt("idmodel"));
-    data[nr][1] = msql.getString("nommodel");
-    nr++;
+void ImprimirTabla(String[][] nom) {
+  for (int i=0; i<nom.length; i++) {
+    printArray(nom[i]);
   }
-  return data;
 }
-*/

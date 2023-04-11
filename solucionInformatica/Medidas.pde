@@ -19,7 +19,8 @@ float prendaAltura = 150,
       
       prendaMargenImg = 20,
       prendaImgX = barraLateralAnchura+prendaMargenX+prendaMargenImg,
-      prendaImgMedida = prendaAltura-2*prendaMargenImg,
+      prendaImgMedidaX = 110*2/3,
+      prendaImgMedidaY = 110,
       
       prendaNombreX = prendaImgX+220,
       prendaModeloX = prendaNombreX + 220,

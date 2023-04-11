@@ -9,7 +9,7 @@ void setup() {
   background(255);
   noStroke();                         // Sin bordes
   textAlign(CENTER); textSize(18);
-  
+    
   setGUI();
 }
 

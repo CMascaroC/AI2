@@ -35,7 +35,7 @@ class Prenda {
     return this.marca;
   }
 
-  void dibujarPrenda(int i) {
+  void dibujarPrendas(int i) {
     pushStyle();
 
     stroke(0);
@@ -43,11 +43,11 @@ class Prenda {
     fill(obtenerColorEn(3));
     rect(barraLateralAnchura+prendaMargenX, prendaMargenY+margenPrendas*i, prendaAnchura, prendaAltura, 10);
 
-    image(this.imagen, prendaImgX, prendaMargenY+prendaMargenImg+margenPrendas*i, prendaImgMedida, prendaImgMedida);
+    image(this.imagen, prendaImgX, prendaMargenY+prendaMargenImg+margenPrendas*i, prendaImgMedidaX, prendaImgMedidaY);
     stroke(0);
     strokeWeight(1.5);
     noFill();
-    rect(prendaImgX, prendaMargenY+prendaMargenImg+margenPrendas*i, prendaImgMedida, prendaImgMedida);
+    rect(prendaImgX, prendaMargenY+prendaMargenImg+margenPrendas*i, prendaImgMedidaX, prendaImgMedidaY);
     noStroke();
 
 
@@ -91,10 +91,10 @@ class Prenda {
     popStyle();
   }
 
-  boolean ratonSobrePrenda() {
+  boolean ratonSobrePrenda(int i) {
     return (mouseX >= 450) &&
       (mouseX <= 1820) &&
-      (mouseY>= 100) &&
-      (mouseY<= 250);
+      (mouseY>= 100+(50+150)*i) &&
+      (mouseY<= 250+(50+150)*i);
   }
 }

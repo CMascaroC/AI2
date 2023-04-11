@@ -12,9 +12,23 @@ PFont[] tipografias;
 // Establece las imagenes de la App
 void asignarMultimedia() {
   // Añadir imagenes de prendas y otros
-  this.imgs = new PImage[2]; 
+  this.imgs = new PImage[15]; 
   this.imgs[0] = loadImage(URL_IMGS+"logo.jpeg"); 
   this.imgs[1] = loadImage(URL_IMGS+"lupa.png");
+  this.imgs[2] = loadImage(URL_IMGS+"Camiseta1.png");
+  this.imgs[3] = loadImage(URL_IMGS+"Camiseta2.png");
+  this.imgs[4] = loadImage(URL_IMGS+"Camiseta3.png");
+  this.imgs[5] = loadImage(URL_IMGS+"Camiseta4.png");
+  this.imgs[6] = loadImage(URL_IMGS+"Camiseta5.png");
+  this.imgs[7] = loadImage(URL_IMGS+"Camiseta6.png");
+  this.imgs[8] = loadImage(URL_IMGS+"Chaqueta1.png"); 
+  this.imgs[9] = loadImage(URL_IMGS+"Pantalon1.png");
+  this.imgs[10] = loadImage(URL_IMGS+"Polo1.png");
+  this.imgs[11] = loadImage(URL_IMGS+"Polo2.png");
+  this.imgs[12] = loadImage(URL_IMGS+"Sudadera1.png");
+  this.imgs[13] = loadImage(URL_IMGS+"Sudadera2.png");
+  this.imgs[14] = loadImage(URL_IMGS+"Sudadera3.png");
+  
   
   // Añadir tipografias
   this.tipografias = new PFont[3];
