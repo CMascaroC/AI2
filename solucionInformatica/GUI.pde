@@ -11,6 +11,7 @@ void setGUI() {
   String[][] tallasPrendas = selectTablaTalla();
   for (int i=0; i<6; i++) {
     tallas[i] = tallasPrendas[i][1];
+    println(tallas[i]);
   }
   crearPrendas();
   crearBotones();
@@ -21,28 +22,28 @@ void crearPrendas() {
   this.prendas = new Prenda[8];
 
   prendas[0] = new Prenda("Chaqueta", "SX450-3", "JHK", obtenerImgEn(8));
-  prendas[0].setDisponibilidadColores(cantidades, colors);
+  prendas[0].setDisponibilidadColores(cantidades, colors, tallas);
 
   prendas[1] = new Prenda("Sudadera", "PM", "Sol's", obtenerImgEn(12));
-  prendas[1].setDisponibilidadColores(cantidades, colors);
+  prendas[1].setDisponibilidadColores(cantidades, colors, tallas);
 
   prendas[2] = new Prenda("Camiseta", "PZ89", "Fruit", obtenerImgEn(3));
-  prendas[2].setDisponibilidadColores(cantidades, colors);
+  prendas[2].setDisponibilidadColores(cantidades, colors, tallas);
 
   prendas[3] = new Prenda("Sudadera", "Fit-3", "Sol's", obtenerImgEn(14));
-  prendas[3].setDisponibilidadColores(cantidades, colors);
+  prendas[3].setDisponibilidadColores(cantidades, colors, tallas);
 
   prendas[4] = new Prenda("Camiseta", "Regent", "Sol's", obtenerImgEn(3));
-  prendas[4].setDisponibilidadColores(cantidades, colors);
+  prendas[4].setDisponibilidadColores(cantidades, colors, tallas);
 
   prendas[5] = new Prenda("Camiseta", "TSRA150", "JHK", obtenerImgEn(4));
-  prendas[5].setDisponibilidadColores(cantidades, colors);
+  prendas[5].setDisponibilidadColores(cantidades, colors, tallas);
 
   prendas[6] = new Prenda("Polo", "3407", "Fruit", obtenerImgEn(10));
-  prendas[6].setDisponibilidadColores(cantidades, colors);
+  prendas[6].setDisponibilidadColores(cantidades, colors, tallas);
 
   prendas[7] = new Prenda("Pantalón", "Opla", "JHK", obtenerImgEn(9));
-  prendas[7].setDisponibilidadColores(cantidades, colors);
+  prendas[7].setDisponibilidadColores(cantidades, colors, tallas);
 }
 
 void crearBotones() {

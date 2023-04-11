@@ -10,7 +10,7 @@ int obtenerNumFilas(String nombreTabla){
 String [][] selectTablaTalla(){
   
   int numRows = obtenerNumFilas("talla");
-  println (numRows);
+  //println (numRows);
   String[][] data = new String[numRows][2];
   
   msql.query ("SELECT * FROM `talla`");

@@ -13,10 +13,11 @@ class Prenda {
     this.marca = marca;
   }
 
-  void setDisponibilidadColores(int[] s, color[] c) {
+  void setDisponibilidadColores(int[] s, color[] c, String[] t) {
     lcd = new ListaColoresDisponibles(s.length);
     lcd.asignarColores(c);
     lcd.asignarDesponibilidad(s);
+    lcd.asignarTallas(t);
   }
 
   PImage obtenerImagen() {
@@ -83,7 +84,7 @@ class Prenda {
     text(modelo, textoPrendaX, 840);
     text(marca, textoPrendaX, 900);
 
-    lcd.dibujarColoresDisponibles(1100, 175);
+    lcd.dibujarColoresDisponibles(1100, 125);
 
     botones[5].dibujarBoton();
     botones[6].dibujarBoton();
