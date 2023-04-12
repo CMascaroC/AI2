@@ -65,6 +65,7 @@ class PopUp {
      
      // Botó d'Acceptar
      botones[7].dibujarBoton();
+     botones[11].dibujarBoton();
      popStyle();
    }
  }

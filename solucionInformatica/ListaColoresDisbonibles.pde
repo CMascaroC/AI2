@@ -1,12 +1,12 @@
 class ListaColoresDisponibles {
 
   color[] colores;
-  int[] disponibilidad;
+  int[][]disponibilidad;
   String[] tallas;
 
   ListaColoresDisponibles (int n) {
     colores = new color[n];
-    disponibilidad = new int[n];
+    disponibilidad = new int[n][n];
     tallas = new String[n];
   }
 
@@ -14,13 +14,14 @@ class ListaColoresDisponibles {
     this.colores = cs;
   }
 
-  void asignarDesponibilidad(int[] dp) {
+  void asignarDisponibilidad(int[][] dp) {
     this.disponibilidad = dp;
   }
 
   void asignarTallas(String[] tl) {
     this.tallas = tl;
   }
+  
 
   void dibujarColoresDisponibles(float x, float y, float r) {
     pushStyle();
@@ -32,8 +33,10 @@ class ListaColoresDisponibles {
       fill(0);
       textAlign(CENTER);
       textSize(24);
-      text (disponibilidad[i], x+(2*r-100)*i, y+2*r+20);
+      //for(int j=0; j<6; j++){
+      text(disponibilidad[i][1], x+(2*r-100)*i, y+2*r+20);
       // text (tallas[i], x+(2*r-100)*i, y+2*r+20+50);
+      //}
     }
     popStyle();
   }
@@ -57,12 +60,12 @@ class ListaColoresDisponibles {
       if ((i%2) == 0) {
         for (int j=0; j<6; j++) {
           text(tallas[j], x+50, (2*15 + 200)*(i/2) + y+7 + 35*j);
-          text(disponibilidad[i], x+100, (2*15 + 200)*(i/2) + y+7+35*j);
+          text(disponibilidad[i][i], x+100, (2*15 + 200)*(i/2) + y+7+35*j);
         }
       } else {
         for (int j=0; j<6; j++) {
           text(tallas[j], x+450, (2*15 + 200)*(i/2) + y+7 + 35*j);
-          text(disponibilidad[i], x+500, (2*15 + 200)*(i/2) + y+7+35*j);
+          text(disponibilidad[i][j], x+500, (2*15 + 200)*(i/2) + y+7+35*j);
         }        
       }
     }

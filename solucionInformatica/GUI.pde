@@ -4,7 +4,12 @@ Boton[] botones;
 PopUp eliminar;
 
 color[] colors = {color(255, 0, 0), color(0, 255, 0), color(0, 0, 255), color(255), color(150), color(0)};
-int[] cantidades = {10, 20, 7, 3, 9, 4};
+int[][] cantidades = {{10, 20, 7, 3, 9, 4},
+                      {5, 1, 7, 0, 8, 3},
+                      {6, 2, 0, 3, 18, 49},
+                      {10, 20, 7, 3, 9, 4},
+                      {5, 1, 7, 0, 8, 3},
+                      {6, 2, 0, 3, 18, 49}};
 String[] tallas = new String[6];
 
 void setGUI() {
@@ -13,6 +18,7 @@ void setGUI() {
     tallas[i] = tallasPrendas[i][1];
     println(tallas[i]);
   }
+  
   crearPrendas();
   crearBotones();
   crearPopUp();
@@ -47,21 +53,22 @@ void crearPrendas() {
 }
 
 void crearBotones() {
-  this.botones = new Boton[11];
+  this.botones = new Boton[12];
 
   botones[0] = new Boton("Añadir", margen1, 700, 250, 60, 30);
   botones[1] = new Boton("Eliminados", margen1, 800, 250, 60, 30);
   botones[2] = new Boton("", margen1, logoAltura+2*margenL, 250, 40, 20);
-  botones[3] = new Boton("Por nombre", margen2, 465, 200, 50, 20);
+  botones[3] = new Boton("Por modelo", margen2, 465, 200, 50, 20);
   botones[4] = new Boton("Por cantidad", margen2, 575, 200, 50, 20);
   botones[5] = new Boton("Editar", 1100, 800, 250, 60, 30);
   botones[6] = new Boton("Eliminar", 1100+350, 800, 250, 60, 30);
-  botones[7] = new Boton("Acceptar", 610 + 350 - buttonW/2, 280 + 400 - buttonH*2, buttonW, buttonH, 30);
+  botones[7] = new Boton("Aceptar", 610 + 2*700/3 - buttonW/2, 280 + 400 - buttonH*2, buttonW, buttonH, 30);
   botones[8] = new Boton(">", 1840, 880, 60, 60, 30);
   botones[9] = new Boton("<", 370, 880, 60, 60, 30);
   botones[10] = new Boton("<", 370, 20, 60, 60, 30);
+  botones[11] = new Boton("Cancelar", 610 + 700/3 - buttonW/2, 280 + 400 - buttonH*2, buttonW, buttonH, 30);
 }
 
 void crearPopUp() {
-  eliminar = new PopUp("Eliminar Prenda", "¿Está seguro que desea eliminar la prenda?", 610, 280, 700, 400);
+  eliminar = new PopUp("Eliminar Prenda", "¿Está seguro que desea eliminar \n toda la disponibilidad de la prenda?", 610, 280, 700, 400);
 }

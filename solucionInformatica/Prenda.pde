@@ -13,10 +13,10 @@ class Prenda {
     this.marca = marca;
   }
 
-  void setDisponibilidadColores(int[] s, color[] c, String[] t) {
+  void setDisponibilidadColores(int[][] s, color[] c, String[] t) {
     lcd = new ListaColoresDisponibles(s.length);
     lcd.asignarColores(c);
-    lcd.asignarDesponibilidad(s);
+    lcd.asignarDisponibilidad(s);
     lcd.asignarTallas(t);
   }
 

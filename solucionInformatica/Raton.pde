@@ -24,9 +24,7 @@ void mousePressed() {
 
     if (botones[9].ratonSobreBoton() && botones[8].habilitado) {
       println(botones[9]+"pulsado");
-      if (pagina!=0) {
-        pagina=pagina-1;
-      }
+      pagina=pagina-1;
     }
   } else if (pantalla == PANTALLA.PRENDA) {
     if (botones[1].ratonSobreBoton() && botones[1].habilitado) {
@@ -40,6 +38,11 @@ void mousePressed() {
     }
     if (botones[7].ratonSobreBoton() && botones[7].habilitado) {
       println(botones[7]+" pulsado");
+      eliminar.setVisible(false);
+      pantalla = PANTALLA.INICIO;
+    }
+    if (botones[11].ratonSobreBoton() && botones[11].habilitado) {
+      println(botones[11]+" pulsado");
       eliminar.setVisible(false);
     }
     if (botones[10].ratonSobreBoton() && botones[10].habilitado) {
