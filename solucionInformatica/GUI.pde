@@ -10,15 +10,12 @@ int[][] cantidades = {{10, 20, 7, 3, 9, 4},
                       {10, 20, 7, 3, 9, 4},
                       {5, 1, 7, 0, 8, 3},
                       {6, 2, 0, 3, 18, 49}};
-String[] tallas = new String[6];
+
+String[] tallasPrendas = new String[6];
+
 
 void setGUI() {
-  String[][] tallasPrendas = selectTablaTalla();
-  for (int i=0; i<6; i++) {
-    tallas[i] = tallasPrendas[i][1];
-    println(tallas[i]);
-  }
-  
+  crearLCD();
   crearPrendas();
   crearBotones();
   crearPopUp();
@@ -28,28 +25,28 @@ void crearPrendas() {
   this.prendas = new Prenda[8];
 
   prendas[0] = new Prenda("Chaqueta", "SX450-3", "JHK", obtenerImgEn(8));
-  prendas[0].setDisponibilidadColores(cantidades, colors, tallas);
+  prendas[0].setDisponibilidadColores(cantidades, colors, tallasPrendas);
 
   prendas[1] = new Prenda("Sudadera", "PM", "Sol's", obtenerImgEn(12));
-  prendas[1].setDisponibilidadColores(cantidades, colors, tallas);
+  prendas[1].setDisponibilidadColores(cantidades, colors, tallasPrendas);
 
   prendas[2] = new Prenda("Camiseta", "PZ89", "Fruit", obtenerImgEn(3));
-  prendas[2].setDisponibilidadColores(cantidades, colors, tallas);
+  prendas[2].setDisponibilidadColores(cantidades, colors, tallasPrendas);
 
   prendas[3] = new Prenda("Sudadera", "Fit-3", "Sol's", obtenerImgEn(14));
-  prendas[3].setDisponibilidadColores(cantidades, colors, tallas);
+  prendas[3].setDisponibilidadColores(cantidades, colors, tallasPrendas);
 
   prendas[4] = new Prenda("Camiseta", "Regent", "Sol's", obtenerImgEn(3));
-  prendas[4].setDisponibilidadColores(cantidades, colors, tallas);
+  prendas[4].setDisponibilidadColores(cantidades, colors, tallasPrendas);
 
   prendas[5] = new Prenda("Camiseta", "TSRA150", "JHK", obtenerImgEn(4));
-  prendas[5].setDisponibilidadColores(cantidades, colors, tallas);
+  prendas[5].setDisponibilidadColores(cantidades, colors, tallasPrendas);
 
   prendas[6] = new Prenda("Polo", "3407", "Fruit", obtenerImgEn(10));
-  prendas[6].setDisponibilidadColores(cantidades, colors, tallas);
+  prendas[6].setDisponibilidadColores(cantidades, colors, tallasPrendas);
 
   prendas[7] = new Prenda("Pantalón", "Opla", "JHK", obtenerImgEn(9));
-  prendas[7].setDisponibilidadColores(cantidades, colors, tallas);
+  prendas[7].setDisponibilidadColores(cantidades, colors, tallasPrendas);
 }
 
 void crearBotones() {
@@ -71,4 +68,9 @@ void crearBotones() {
 
 void crearPopUp() {
   eliminar = new PopUp("Eliminar Prenda", "¿Está seguro que desea eliminar \n toda la disponibilidad de la prenda?", 610, 280, 700, 400);
+}
+
+void crearLCD(){
+  this.tallasPrendas = new String[6];
+  tallasPrendas = selectTallas();
 }

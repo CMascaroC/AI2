@@ -27,8 +27,8 @@ void conectarBBDD() {
   //ImprimirTabla(colores);
 }
 
-void ImprimirTabla(String[][] nom) {
+/*void ImprimirTabla(String[][] nom) {
   for (int i=0; i<nom.length; i++) {
     printArray(nom[i]);
   }
-}
+}*/

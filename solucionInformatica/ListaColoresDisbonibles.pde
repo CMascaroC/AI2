@@ -34,9 +34,9 @@ class ListaColoresDisponibles {
       textAlign(CENTER);
       textSize(24);
       //for(int j=0; j<6; j++){
-      text(disponibilidad[i][1], x+(2*r-100)*i, y+2*r+20);
-      // text (tallas[i], x+(2*r-100)*i, y+2*r+20+50);
+      
       //}
+      text(disponibilidad[i][1], x+(2*r-100)*i, y+2*r+20);
     }
     popStyle();
   }
@@ -60,12 +60,12 @@ class ListaColoresDisponibles {
       if ((i%2) == 0) {
         for (int j=0; j<6; j++) {
           text(tallas[j], x+50, (2*15 + 200)*(i/2) + y+7 + 35*j);
-          text(disponibilidad[i][i], x+100, (2*15 + 200)*(i/2) + y+7+35*j);
+          //text(disponibilidad[i][i], x+100, (2*15 + 200)*(i/2) + y+7+35*j);
         }
       } else {
         for (int j=0; j<6; j++) {
           text(tallas[j], x+450, (2*15 + 200)*(i/2) + y+7 + 35*j);
-          text(disponibilidad[i][j], x+500, (2*15 + 200)*(i/2) + y+7+35*j);
+          //text(disponibilidad[i][j], x+500, (2*15 + 200)*(i/2) + y+7+35*j);
         }        
       }
     }

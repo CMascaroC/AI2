@@ -18,6 +18,7 @@ class Prenda {
     lcd.asignarColores(c);
     lcd.asignarDisponibilidad(s);
     lcd.asignarTallas(t);
+    printArray(t);
   }
 
   PImage obtenerImagen() {

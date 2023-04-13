@@ -1,12 +1,12 @@
 int pagina=0;
 
 void mousePressed() {
-
+  //logo
   if (mouseX>65 && mouseX<285 && mouseY>65 && mouseY<285) {
     pagina=0;
     pantalla=PANTALLA.INICIO;
   }
-
+  //pantalla 1
   if (pantalla == PANTALLA.INICIO) {
     if (botones[0].ratonSobreBoton() && botones[0].habilitado) {
       println(botones[0]+" pulsado");
