@@ -39,6 +39,11 @@ void crearPrendasTexto(String t){
   crearPrendas(tablaPrendas);
 }
 
+void crearPrendasSinStock(){
+  String[][] tablaPrendas = selectTablaSinStock();
+  crearPrendas(tablaPrendas);
+}
+
 //Crear las prendas a partir de un array con la información de la base de datos
 void crearPrendas(String[][] tablaPrendas) {
   

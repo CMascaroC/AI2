@@ -81,7 +81,7 @@ class CampoTexto {
 
   // Quitar la última letra
   void removeText() {
-    if (textLength - 1 >= 0) {
+    if (textLength > 0) {
       texto = texto.substring(0, textLength - 1);
       textLength--;
     }
@@ -99,12 +99,5 @@ class CampoTexto {
 
   // Selecciona el camp de text si pitjam a sobre
   // Deselecciona el camp de text si pitjam a fora
-  void isPressed() {
-    if (mouseOverTextField()) {
-      selected = true;
-      orden=true;
-    } else {
-      selected = false;
-    }
-  }
+  
 }

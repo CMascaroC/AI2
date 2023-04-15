@@ -14,7 +14,7 @@ void mousePressed() {
       println(botones[3]+" pulsado");
       orden=true;
       pantalla=PANTALLA.INICIO;
-      camposTexto[0].texto = " ";
+      camposTexto[0].texto = "";
       camposTexto[0].selected = false;
       crearPrendasOrdenAlfabetico();
       pagina=0;
@@ -23,25 +23,46 @@ void mousePressed() {
       println(botones[4]+" pulsado");
       pantalla=PANTALLA.INICIO;
       orden=true;
-      camposTexto[0].texto = " ";
+      camposTexto[0].texto = "";
       camposTexto[0].selected = false;
       crearPrendasOrdenCant();
+      pagina=0;
+    }
+    if (botones[1].ratonSobreBoton() && botones[1].dibujado) {
+      println(botones[1]+" pulsado");
+      pantalla=PANTALLA.INICIO;
+      orden=true;
+      camposTexto[0].texto = "";
+      camposTexto[0].selected = false;
+      crearPrendasSinStock();
       pagina=0;
     }
     
     if (botones[0].ratonSobreBoton() && botones[0].dibujado) {
       println(botones[0]+" pulsado");
     }
+    
+    if (camposTexto[0].mouseOverTextField()) {
+      camposTexto[0].selected = true;
+      orden=true;
+    } else {
+      camposTexto[0].selected = false;
+    }
   
   //Pantalla Inicio
   if (pantalla == PANTALLA.INICIO) {
-    println(prendas.length);
-    for (int i=0; i<prendas.length%4; i++) {
+    int prendasPg=4;
+    if (prendas.length<4){
+      prendasPg=prendas.length;
+    } 
+    for (int i=0; i<prendasPg; i++) {
       if (prendas[i].ratonSobrePrenda(i)) {
         pantalla = PANTALLA.PRENDA;
         prendaDetallada = pagina*4+i;
+        println("sobre prenda " +i);
       }
     }
+    
     if (botones[8].ratonSobreBoton() && botones[8].habilitado) {
       println(botones[8]+"pulsado");
       pagina=pagina+1;
@@ -67,6 +88,9 @@ void mousePressed() {
     if (botones[7].ratonSobreBoton() && botones[7].habilitado) {
       println(botones[7]+" pulsado");
       eliminar.setVisible(false);
+      eliminarStockModelo(prendas[prendaDetallada].modelo);
+      println(prendas[prendaDetallada].modelo);
+      sinStock+=1;
       pantalla = PANTALLA.INICIO;
     }
     if (botones[11].ratonSobreBoton() && botones[11].habilitado) {
@@ -78,7 +102,4 @@ void mousePressed() {
       pantalla = PANTALLA.INICIO;
     }
   }
-   
-  // Mirar si se pulsa el campo de texto
-   camposTexto[0].isPressed();
 }

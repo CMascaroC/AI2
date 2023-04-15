@@ -1,5 +1,6 @@
 //Contador del número de fila
 int nf;
+int sinStock=6;
 
 //Obtener el número de filas de una tabla
 int obtenerNumFilas(String nombreTabla) {
@@ -175,4 +176,26 @@ String [][] selectTablaModeloOrdenTexto(String texto) {
     nf++;
   }
   return data;
+}
+
+String [][] selectTablaSinStock() { 
+  
+  String[][] data = new String[sinStock][5];
+  msql.query("SELECT m.idModelo, m.Nombre, m.Marca_idMarca, m.Tipo_idTipo, m.Imágen_idImágen FROM modelo m INNER JOIN cantidad c ON c.Modelo_idModelo=m.idModelo GROUP BY m.idModelo HAVING SUM(c.Cantidad)=0");
+  
+  nf=0;
+  while (msql.next()) {
+    data[nf][0] = String.valueOf(msql.getInt("idModelo"));
+    data[nf][1] = msql.getString("Nombre");
+    data[nf][2] = msql.getString("Marca_idMarca");
+    data[nf][3] = msql.getString("Tipo_idTipo");
+    data[nf][4] = msql.getString("Imágen_idImágen");
+    nf++;
+  }
+  return data;
+}
+
+void eliminarStockModelo(String nombre){
+  int id = obtenerIdModelo(nombre);
+  msql.query("UPDATE `cantidad` SET `Cantidad` = '0' WHERE `Modelo_idModelo` ="+id);
 }

@@ -9,7 +9,7 @@ void dibujarPantalla1() {
   if (!orden) {
     crearPrendasNoOrden();
   }
-  if (camposTexto[0].selected&&orden) {
+  if (camposTexto[0].selected) {
     orden=true;
     crearPrendasTexto(camposTexto[0].texto);
   }
