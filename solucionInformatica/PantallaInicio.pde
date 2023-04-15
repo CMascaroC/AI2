@@ -1,18 +1,19 @@
+//Dibujar la pantalla inicial
+boolean orden = false;
+
 void dibujarPantalla1() {
   //Zona Principal
   fill(obtenerColorEn(6));
   rect(0, 0, width, height);
 
-  dibujarPrendasInicio(pagina*4);
-
-  if (pagina==0) {
-    botones[8].dibujarBoton();
-  } else if (pagina==int(prendas.length/4)-1) {
-    botones[9].dibujarBoton();
-  } else {
-    botones[8].dibujarBoton();
-    botones[9].dibujarBoton();
+  if (!orden) {
+    crearPrendasNoOrden();
   }
+  if (camposTexto[0].selected&&orden) {
+    orden=true;
+    crearPrendasTexto(camposTexto[0].texto);
+  }
+  dibujarPrendasInicio(pagina*4);
   
   dibujarBarraLateral();
 
@@ -22,10 +23,27 @@ void dibujarPantalla1() {
   fill(0);
   text("Pág: "+(pagina+1), 1135, 920);
   popStyle();
+  
+  if(prendas.length%4==0){
+  maxPaginas = prendas.length/4-1;
+  }else {
+  maxPaginas = prendas.length/4;
+  }
+
+  if (pagina==0) {
+    botones[8].dibujarBoton();
+  } else if (pagina==maxPaginas) {
+    botones[9].dibujarBoton();
+  } else {
+    botones[8].dibujarBoton();
+    botones[9].dibujarBoton();
+  }
 }
 
 void dibujarPrendasInicio(int x) {
   for (int i=x; i<x+4; i++) {
-    prendas[i].dibujarPrendas(i%4);
+    if (i<prendas.length) {
+      prendas[i].dibujarPrendas(i%4);
+    }
   }
 }

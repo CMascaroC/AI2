@@ -1,3 +1,5 @@
+//Clase botón
+
 class Boton {
   
  // Propiedades de un botón:
@@ -9,7 +11,7 @@ class Boton {
  
  String textoBoton;  // Texto
  int numLetras; //Tamaño de la letra
- boolean habilitado;  // Habilitado / deshabilitado
+ boolean habilitado, dibujado;  // Habilitado / deshabilitado, dibujado/no dibujado
  
  // Método Constructor
  Boton(String texto, float x, float y, float w, float h, int numLetras){
@@ -20,6 +22,7 @@ class Boton {
    this.h = h;
    this.numLetras = numLetras;
    this.habilitado = true;
+   this.dibujado = false;
    rellenarColor = color(obtenerColorEn(2));
    rellenarColorSobre = color(obtenerColorEn(1));
    rellenarColorDeshabilitado = color(150);
@@ -32,9 +35,10 @@ class Boton {
    this.habilitado = b;
  }
  
- // Dibuja el botón
+ // Dibujar el botón
  void dibujarBoton(){
    pushStyle();
+   this.dibujado=true;
    if(!habilitado){
      fill(rellenarColorDeshabilitado);  // Color desabilitat
      cursor(ARROW);
@@ -51,7 +55,7 @@ class Boton {
    stroke(bordeColor); strokeWeight(2);        //Color i gruixa del contorn
    rect(this.x, this.y, this.w, this.h, 10);    // Rectangle del botó
    
-   // Text (color, alineació i mida)
+   // Texto
    fill(0); textAlign(CENTER); textFont(tipografias[2]); textSize(numLetras);
    text(textoBoton, this.x + this.w/2, this.y + this.h-17.5);
    popStyle();
@@ -62,6 +66,6 @@ class Boton {
    return (mouseX >= this.x) && 
           (mouseX<=this.x + this.w) && 
           (mouseY>= this.y) && 
-          (mouseY<= this.y + this.h); 
+          (mouseY<= this.y + this.h)&& this.dibujado; 
  }
 }

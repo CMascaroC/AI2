@@ -2,58 +2,69 @@
 Prenda [] prendas;
 Boton[] botones;
 PopUp eliminar;
+CampoTexto[] camposTexto;
 
-color[] colors = {color(255, 0, 0), color(0, 255, 0), color(0, 0, 255), color(255), color(150), color(0)};
-int[][] cantidades = {{10, 20, 7, 3, 9, 4},
-                      {5, 1, 7, 0, 8, 3},
-                      {6, 2, 0, 3, 18, 49},
-                      {10, 20, 7, 3, 9, 4},
-                      {5, 1, 7, 0, 8, 3},
-                      {6, 2, 0, 3, 18, 49}};
-
-String[] tallasPrendas = new String[6];
-
-
+//Llamada a las funciones para definir cada tipo de elemento
 void setGUI() {
-  crearLCD();
-  crearPrendas();
   crearBotones();
   crearPopUp();
+  crearCampoTexto();
 }
 
-void crearPrendas() {
-  this.prendas = new Prenda[8];
+//Crear las prendas por orden "aleatorio", segun la inserción en la base de datos
+void crearPrendasNoOrden(){
 
-  prendas[0] = new Prenda("Chaqueta", "SX450-3", "JHK", obtenerImgEn(8));
-  prendas[0].setDisponibilidadColores(cantidades, colors, tallasPrendas);
+//Array con la información de los modelos
+String[][] tablaPrendas = selectTablaModelo();
 
-  prendas[1] = new Prenda("Sudadera", "PM", "Sol's", obtenerImgEn(12));
-  prendas[1].setDisponibilidadColores(cantidades, colors, tallasPrendas);
-
-  prendas[2] = new Prenda("Camiseta", "PZ89", "Fruit", obtenerImgEn(3));
-  prendas[2].setDisponibilidadColores(cantidades, colors, tallasPrendas);
-
-  prendas[3] = new Prenda("Sudadera", "Fit-3", "Sol's", obtenerImgEn(14));
-  prendas[3].setDisponibilidadColores(cantidades, colors, tallasPrendas);
-
-  prendas[4] = new Prenda("Camiseta", "Regent", "Sol's", obtenerImgEn(3));
-  prendas[4].setDisponibilidadColores(cantidades, colors, tallasPrendas);
-
-  prendas[5] = new Prenda("Camiseta", "TSRA150", "JHK", obtenerImgEn(4));
-  prendas[5].setDisponibilidadColores(cantidades, colors, tallasPrendas);
-
-  prendas[6] = new Prenda("Polo", "3407", "Fruit", obtenerImgEn(10));
-  prendas[6].setDisponibilidadColores(cantidades, colors, tallasPrendas);
-
-  prendas[7] = new Prenda("Pantalón", "Opla", "JHK", obtenerImgEn(9));
-  prendas[7].setDisponibilidadColores(cantidades, colors, tallasPrendas);
+//Crear las prendas
+crearPrendas(tablaPrendas);
 }
 
+//Crear las prendas por orden alfabético
+void crearPrendasOrdenAlfabetico(){
+String[][] tablaPrendas = selectTablaModeloAlfabetico();
+crearPrendas(tablaPrendas);
+}
+
+//Crear las prendas por orden según la cantidad
+void crearPrendasOrdenCant(){
+String[][] tablaPrendas = selectTablaModeloCant();
+crearPrendas(tablaPrendas);
+}
+
+//Crear las prendas según el texto introducido en el buscador
+void crearPrendasTexto(String t){
+  String[][] tablaPrendas = selectTablaModeloOrdenTexto(t);
+  crearPrendas(tablaPrendas);
+}
+
+//Crear las prendas a partir de un array con la información de la base de datos
+void crearPrendas(String[][] tablaPrendas) {
+  
+  //Definir array de prendas
+  this.prendas = new Prenda[tablaPrendas.length]; 
+  
+  for(int i=0; i<tablaPrendas.length; i++){
+    
+    //A través del id (clave externa) de la información de la prenda
+    //Se obtiene la información a mostrar
+    String tipo = obtenerTipo(int(tablaPrendas[i][3]));
+    String modelo = tablaPrendas[i][1];
+    String marca = obtenerMarca(int(tablaPrendas[i][2]));
+    
+    //Se crean las prendas con esa información
+    prendas[i] = new Prenda(tipo, modelo, marca, obtenerImgEn(int(tablaPrendas[i][4])+1));
+    prendas[i].asignarDisponibilidad();
+  }
+}
+
+//Crear los botones
 void crearBotones() {
   this.botones = new Boton[12];
 
   botones[0] = new Boton("Añadir", margen1, 700, 250, 60, 30);
-  botones[1] = new Boton("Eliminados", margen1, 800, 250, 60, 30);
+  botones[1] = new Boton("Sin Stock", margen1, 800, 250, 60, 30);
   botones[2] = new Boton("", margen1, logoAltura+2*margenL, 250, 40, 20);
   botones[3] = new Boton("Por modelo", margen2, 465, 200, 50, 20);
   botones[4] = new Boton("Por cantidad", margen2, 575, 200, 50, 20);
@@ -66,11 +77,15 @@ void crearBotones() {
   botones[11] = new Boton("Cancelar", 610 + 700/3 - buttonW/2, 280 + 400 - buttonH*2, buttonW, buttonH, 30);
 }
 
+//Crear el pop-up
 void crearPopUp() {
   eliminar = new PopUp("Eliminar Prenda", "¿Está seguro que desea eliminar \n toda la disponibilidad de la prenda?", 610, 280, 700, 400);
 }
 
-void crearLCD(){
-  this.tallasPrendas = new String[6];
-  tallasPrendas = selectTallas();
+//Crear campos de texto
+void crearCampoTexto(){
+  this.camposTexto = new CampoTexto[1];
+  
+  // buscador
+  camposTexto[0] = new CampoTexto(margen1, logoAltura+2*margenL, 250, 40);
 }

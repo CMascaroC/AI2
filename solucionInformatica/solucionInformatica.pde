@@ -1,25 +1,28 @@
+//Variable para cambiar la pantalla
 enum PANTALLA {INICIO, PRENDA, AÑADIR, ELIMINADOS};
 PANTALLA pantalla = PANTALLA.INICIO;
 
 void setup() {
+  
+  //Funciones de arranque
   asignarColores();
   asignarMultimedia();
   conectarBBDD();
+  setGUI();
+  
   size(1920, 960);
   background(255);
-  noStroke();                         // Sin bordes
+  noStroke(); // Sin bordes
   textAlign(CENTER); textSize(18);
-    
-  setGUI();
 }
 
 void draw() {
   
+  //Dibujar cada pantalla según el valor de la variable de control
   switch(pantalla){
     case INICIO: dibujarPantalla1(); break;
     case PRENDA: dibujarPantalla2(); break;
     case AÑADIR: //dibujarPantalla3(); break;
     case ELIMINADOS: //dibujarPantalla4(); break;
   }
-  //println("X: "+mouseX+", Y:"+mouseY);
 }

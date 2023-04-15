@@ -1,17 +1,42 @@
 int pagina=0;
+int maxPaginas;
 
 void mousePressed() {
-  //logo
+  //Barra lateral
+  
+  //Logo
   if (mouseX>65 && mouseX<285 && mouseY>65 && mouseY<285) {
     pagina=0;
     pantalla=PANTALLA.INICIO;
+    orden=false;
   }
-  //pantalla 1
-  if (pantalla == PANTALLA.INICIO) {
-    if (botones[0].ratonSobreBoton() && botones[0].habilitado) {
+  if (botones[3].ratonSobreBoton() && botones[3].dibujado) {
+      println(botones[3]+" pulsado");
+      orden=true;
+      pantalla=PANTALLA.INICIO;
+      camposTexto[0].texto = " ";
+      camposTexto[0].selected = false;
+      crearPrendasOrdenAlfabetico();
+      pagina=0;
+    }
+  if (botones[4].ratonSobreBoton() && botones[4].dibujado) {
+      println(botones[4]+" pulsado");
+      pantalla=PANTALLA.INICIO;
+      orden=true;
+      camposTexto[0].texto = " ";
+      camposTexto[0].selected = false;
+      crearPrendasOrdenCant();
+      pagina=0;
+    }
+    
+    if (botones[0].ratonSobreBoton() && botones[0].dibujado) {
       println(botones[0]+" pulsado");
     }
-    for (int i=0; i<4; i++) {
+  
+  //Pantalla Inicio
+  if (pantalla == PANTALLA.INICIO) {
+    println(prendas.length);
+    for (int i=0; i<prendas.length%4; i++) {
       if (prendas[i].ratonSobrePrenda(i)) {
         pantalla = PANTALLA.PRENDA;
         prendaDetallada = pagina*4+i;
@@ -24,9 +49,12 @@ void mousePressed() {
 
     if (botones[9].ratonSobreBoton() && botones[8].habilitado) {
       println(botones[9]+"pulsado");
-      pagina=pagina-1;
+        pagina=pagina-1;
     }
-  } else if (pantalla == PANTALLA.PRENDA) {
+  } 
+  
+  //Pantalla Prenda
+  else if (pantalla == PANTALLA.PRENDA) {
     if (botones[1].ratonSobreBoton() && botones[1].habilitado) {
       println(botones[1]+" pulsado");
       pantalla = PANTALLA.INICIO;
@@ -50,10 +78,7 @@ void mousePressed() {
       pantalla = PANTALLA.INICIO;
     }
   }
-  //  Botones pulsados
-  for (int i=0; i<botones.length; i++) {
-    if (botones[i].ratonSobreBoton() && botones[i].habilitado) {
-      println(botones[i]+" pulsado");
-    }
-  }
+   
+  // Mirar si se pulsa el campo de texto
+   camposTexto[0].isPressed();
 }

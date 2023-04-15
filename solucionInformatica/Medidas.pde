@@ -29,5 +29,6 @@ float prendaAltura = 150,
       
 float textoPrendaX = 550;
 
+//Dimensiones de los botones del Pop-up
 float buttonW = 200;
 float buttonH = 60;

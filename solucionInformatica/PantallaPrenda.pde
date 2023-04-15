@@ -8,5 +8,6 @@ void dibujarPantalla2(){
   botones[10].dibujarBoton();
   eliminar.dibujarPopUp();
   
+  //Barra lateral
   dibujarBarraLateral();  
 }

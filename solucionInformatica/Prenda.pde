@@ -1,4 +1,7 @@
+//Clase prenda
+
 class Prenda {
+  //Atributos
   String nombre;
   String modelo;
   String marca;
@@ -6,20 +9,21 @@ class Prenda {
   ListaColoresDisponibles lcd;
   String observaciones;
 
+  //Constructor
   Prenda(String nombre, String modelo, String marca, PImage imagen) {
     this.nombre = nombre;
     this.modelo = modelo;
     this.imagen = imagen;
     this.marca = marca;
   }
-
-  void setDisponibilidadColores(int[][] s, color[] c, String[] t) {
-    lcd = new ListaColoresDisponibles(s.length);
-    lcd.asignarColores(c);
-    lcd.asignarDisponibilidad(s);
-    lcd.asignarTallas(t);
-    printArray(t);
+  
+  //Setters
+  void asignarDisponibilidad() {
+    lcd = new ListaColoresDisponibles(6);
+    lcd.asignarLCD(this.modelo);
   }
+  
+  //Getters
 
   PImage obtenerImagen() {
     return this.imagen;
@@ -37,6 +41,7 @@ class Prenda {
     return this.marca;
   }
 
+  //Dibujar las prendas en grupos de 4
   void dibujarPrendas(int i) {
     pushStyle();
 
@@ -53,7 +58,7 @@ class Prenda {
     noStroke();
 
 
-    textMode(LEFT);
+    textAlign(CENTER);
     fill(0);
     textSize(30);
     text(nombre, prendaNombreX, prendaTextoY+margenPrendas*i);
@@ -63,7 +68,8 @@ class Prenda {
     lcd.dibujarColoresDisponibles(1750, 175+margenPrendas*i, 15);
     popStyle();
   }
-
+  
+  //Dibujar una prenda con sus detalles
   void dibujarPrenda() {
     pushStyle();
     textAlign(LEFT);
@@ -93,6 +99,7 @@ class Prenda {
     popStyle();
   }
 
+  //Indica si el ratón se encuentra sobre una de las prendas dibujadas
   boolean ratonSobrePrenda(int i) {
     return (mouseX >= 450) &&
       (mouseX <= 1820) &&

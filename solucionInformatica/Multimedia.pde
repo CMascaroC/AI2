@@ -15,18 +15,18 @@ void asignarMultimedia() {
   this.imgs = new PImage[15]; 
   this.imgs[0] = loadImage(URL_IMGS+"logo.jpeg"); 
   this.imgs[1] = loadImage(URL_IMGS+"lupa.png");
-  this.imgs[2] = loadImage(URL_IMGS+"Camiseta1.png");
-  this.imgs[3] = loadImage(URL_IMGS+"Camiseta2.png");
-  this.imgs[4] = loadImage(URL_IMGS+"Camiseta3.png");
-  this.imgs[5] = loadImage(URL_IMGS+"Camiseta4.png");
-  this.imgs[6] = loadImage(URL_IMGS+"Camiseta5.png");
-  this.imgs[7] = loadImage(URL_IMGS+"Camiseta6.png");
+  this.imgs[2] = loadImage(URL_IMGS+"Sudadera1.png");
+  this.imgs[3] = loadImage(URL_IMGS+"Camiseta1.png");
+  this.imgs[4] = loadImage(URL_IMGS+"Camiseta2.png");
+  this.imgs[5] = loadImage(URL_IMGS+"Polo1.png");
+  this.imgs[6] = loadImage(URL_IMGS+"Sudadera2.png");
+  this.imgs[7] = loadImage(URL_IMGS+"Pantalon1.png");
   this.imgs[8] = loadImage(URL_IMGS+"Chaqueta1.png"); 
-  this.imgs[9] = loadImage(URL_IMGS+"Pantalon1.png");
-  this.imgs[10] = loadImage(URL_IMGS+"Polo1.png");
-  this.imgs[11] = loadImage(URL_IMGS+"Polo2.png");
-  this.imgs[12] = loadImage(URL_IMGS+"Sudadera1.png");
-  this.imgs[13] = loadImage(URL_IMGS+"Sudadera2.png");
+  this.imgs[9] = loadImage(URL_IMGS+"Camiseta3.png");
+  this.imgs[10] = loadImage(URL_IMGS+"Camiseta4.png");
+  this.imgs[11] = loadImage(URL_IMGS+"Camiseta5.png");
+  this.imgs[12] = loadImage(URL_IMGS+"Camiseta6.png");
+  this.imgs[13] = loadImage(URL_IMGS+"Polo2.png");
   this.imgs[14] = loadImage(URL_IMGS+"Sudadera3.png");
   
   
@@ -53,7 +53,7 @@ PImage obtenerImgEn(int i) {
 }
 
 
-// Dibuja el logo
+// Dibujar el logo
 void dibujarLogo(float x, float y, float w, float h) {
   image(obtenerLogo(), x, y, w, h);
   stroke(0);
@@ -63,7 +63,7 @@ void dibujarLogo(float x, float y, float w, float h) {
   noStroke();
 }
 
-// Dibuja la imagen i-ésima
+// Dibujar la imagen i-ésima
 void dibujarImg(int i, float x, float y, float w, float h) {
   image(obtenerImgEn(i), x, y, w, h);
 }
