@@ -1,6 +1,6 @@
 int pagina=0;
 int maxPaginas;
-boolean registrado = true;
+boolean registrado = false;
 
 void mousePressed() {
   //Barra lateral
@@ -82,6 +82,11 @@ void mousePressed() {
         println(botones[1]+" pulsado");
         pantalla = PANTALLA.INICIO;
       }
+      
+      if (botones[5].ratonSobreBoton() && botones[5].habilitado) {
+        println(botones[5]+" pulsado");
+        pantalla = PANTALLA.EDITAR;
+      }
 
       if (botones[6].ratonSobreBoton() && botones[6].habilitado) {
         println(botones[6]+" pulsado");
@@ -112,13 +117,95 @@ void mousePressed() {
       for (int i=0; i<6; i++) {
         contadores[i].update();
       }
-      for (int i=3; i<9; i++) {
+      for (int i=3; i<12; i++) {
         if (camposTexto[i].mouseOverTextField()) {
           camposTexto[i].selected = true;
           orden=true;
         } else {
           camposTexto[i].selected = false;
         }
+      }
+
+      if (desplegables[0].mouseOverSelect() && desplegables[0].enabled) {
+        if (!desplegables[0].collapsed) {
+          desplegables[0].update();  // Actualitzar valor
+          imagenAñadir = obtenerImagenAñadir(desplegables[0].selectedValue);
+          image(imagenAñadir, 500, 250, 450, 650);
+        }
+        desplegables[0].toggle();        // Plegar o desplegar
+      }
+      
+      if (botones[12].ratonSobreBoton() && botones[12].dibujado) {
+        int idMarca = obtenerIdMarca(camposTexto[11].texto);
+        int idTipo = obtenerIdTipo(camposTexto[9].texto);
+        String modelo = camposTexto[10].texto;
+        println("Finalizar pulsado");
+        insertarModelo(modelo, idMarca, idTipo, idImagenAñadir);
+        int idModelo = obtenerIdModelo(modelo);
+        for (int i=3; i<9; i++) {
+          if (!(camposTexto[i].texto.equals(""))) {
+            int idTalla = obtenerIdTalla(camposTexto[i].texto);
+            int cantidad = contadores[i-3].value;
+            int idColor = i-2;
+            insertarCantidades(cantidad, idModelo, idTalla, idColor);
+          }
+        }
+        crearPrendasNoOrden();
+        orden=false;
+        pantalla = PANTALLA.INICIO;
+      }
+      
+      if (botones[10].ratonSobreBoton() && botones[10].habilitado) {
+        println(botones[10]+" pulsado");
+        crearPrendasNoOrden();
+        orden=false;
+        pantalla = PANTALLA.INICIO;
+      }
+    }
+    
+    else if (pantalla == PANTALLA.EDITAR){
+      for (int i=0; i<6; i++) {
+        contadores[i].update();
+      }
+      for (int i=3; i<12; i++) {
+        if (camposTexto[i].mouseOverTextField()) {
+          camposTexto[i].selected = true;
+          orden=true;
+        } else {
+          camposTexto[i].selected = false;
+        }
+      }
+
+      if (desplegables[0].mouseOverSelect() && desplegables[0].enabled) {
+        if (!desplegables[0].collapsed) {
+          desplegables[0].update();  // Actualitzar valor
+          imagenAñadir = obtenerImagenAñadir(desplegables[0].selectedValue);
+          image(imagenAñadir, 500, 250, 450, 650);
+        }
+        desplegables[0].toggle();        // Plegar o desplegar
+      }
+      
+      if (botones[12].ratonSobreBoton() && botones[12].dibujado) {
+        String modelo = camposTexto[10].texto;
+        int idModelo = obtenerIdModelo(modelo);
+        for (int i=3; i<9; i++) {
+          if (!(camposTexto[i].texto.equals(""))) {
+            int idTalla = obtenerIdTalla(camposTexto[i].texto);
+            int cantidad = contadores[i-3].value;
+            int idColor = i-2;
+            insertarCantidades(cantidad, idModelo, idTalla, idColor);
+          }
+        }
+        crearPrendasNoOrden();
+        orden=false;
+        pantalla = PANTALLA.INICIO;
+      }
+      
+      if (botones[10].ratonSobreBoton() && botones[10].habilitado) {
+        println(botones[10]+" pulsado");
+        crearPrendasNoOrden();
+        orden=false;
+        pantalla = PANTALLA.INICIO;
       }
     }
   }

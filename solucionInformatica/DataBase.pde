@@ -19,6 +19,32 @@ int obtenerIdModelo(String modelo) {
   return idModelo;
 }
 
+//Obtener el ID de un tipo de prenda
+int obtenerIdTipo(String tipo) {
+  nf =0;
+  msql.query ("SELECT `idTipo` AS n FROM `tipo` WHERE `Nombre`=\"%s\"", tipo);
+  msql.next();
+  int idTipo = msql.getInt("n");
+  return idTipo;
+}
+
+//Obtener el ID de una marca
+int obtenerIdMarca(String marca) {
+  nf =0;
+  msql.query ("SELECT `idMarca` AS n FROM `marca` WHERE `Nombre`=\"%s\"", marca);
+  msql.next();
+  int idMarca = msql.getInt("n");
+  return idMarca;
+}
+
+int obtenerIdTalla(String talla) {
+  nf =0;
+  msql.query ("SELECT `idTalla` AS n FROM `talla` WHERE `Talla`=\"%s\"", talla);
+  msql.next();
+  int idTalla = msql.getInt("n");
+  return idTalla;
+}
+
 //Obtener el número de prendas disponibles por color de un modelo concreto
 int obtenerCantidadColor(String modelo, int idColor) {
   nf =0;
@@ -198,4 +224,13 @@ String [][] selectTablaSinStock() {
 void eliminarStockModelo(String nombre){
   int id = obtenerIdModelo(nombre);
   msql.query("UPDATE `cantidad` SET `Cantidad` = '0' WHERE `Modelo_idModelo` ="+id);
+}
+
+void insertarModelo(String modelo, int idMarca, int idTipo, int idImg){
+  println("Insertar modelo:" +modelo);
+  msql.query("INSERT INTO `modelo` (`idModelo`, `Nombre`, `Marca_idMarca`, `Tipo_idTipo`, `Imágen_idImágen`) VALUES (NULL, '"+modelo+"', '"+idMarca+"', '"+idTipo+"', '"+idImg+"');");
+}
+
+void insertarCantidades(int cantidad, int idModelo, int idTalla, int idColor){
+  msql.query("INSERT INTO `cantidad` (`idCantidad`, `Cantidad`, `Modelo_idModelo`, `Talla_idTalla`, `Color_idColor`) VALUES (NULL, '"+cantidad+"', '"+idModelo+"', '"+idTalla+"', '"+idColor+"');");
 }

@@ -3,6 +3,15 @@ boolean orden = false;
 
 void dibujarPantalla1() {
   //Zona Principal
+  
+  for(int i=0; i<12; i++){
+    camposTexto[i].texto = "";
+  }
+  for(int i=0; i<6; i++){
+    contadores[i].value = 0;
+  }
+  imagenAñadir = obtenerImgEn(15);
+  
   fill(obtenerColorEn(6));
   rect(0, 0, width, height);
 

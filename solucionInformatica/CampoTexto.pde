@@ -50,7 +50,6 @@ class CampoTexto {
 
     fill(0);
     textSize(textSize);
-    println(texto);
     text(texto, textoX, textoY);
     popMatrix();
   }
@@ -106,7 +105,4 @@ class CampoTexto {
     }
     return false;
   }
-
-  // Selecciona el camp de text si pitjam a sobre
-  // Deselecciona el camp de text si pitjam a fora
 }

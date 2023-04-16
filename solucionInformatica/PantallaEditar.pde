@@ -1,10 +1,4 @@
-String modeloAñadir, tipoAñadir, marcaAñadir;
-int idImagenAñadir;
-
-
-void dibujarPantalla3() {
-  
-  //Zona Principal
+void dibujarPantalla4(){
   pushMatrix();
   fill(obtenerColorEn(6));
   rect(0, 0, width, height);
@@ -12,7 +6,8 @@ void dibujarPantalla3() {
   textFont(obtenerTipografiaEn(1));
   textAlign(LEFT);
   textSize(65);
-  //text("Añadir  Prenda", 450, 110);
+  
+  
   
   for(int i=0; i<6; i++){
     contadores[i].display();
@@ -20,6 +15,12 @@ void dibujarPantalla3() {
     fill(coloresPrendas[i]); strokeWeight(2); 
     ellipse(1200, 325+100*i, 30, 30);
   }
+    
+  camposTexto[9].texto = prendas[prendaDetallada].nombre;
+  camposTexto[10].texto = prendas[prendaDetallada].modelo;
+  camposTexto[11].texto = prendas[prendaDetallada].marca;
+  imagenAñadir = prendas[prendaDetallada].imagen;
+  
   camposTexto[9].dibujarCampo();
   camposTexto[10].dibujarCampo();
   camposTexto[11].dibujarCampo();
