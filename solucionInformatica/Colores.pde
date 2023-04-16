@@ -1,4 +1,5 @@
 color[] colores;
+color[] coloresPrendas = {color(0), color(255), color(0, 0, 255), color(0, 255, 0), color(255, 0, 0), color(150)};
 
 // Estableix colores de l'App
 void asignarColores() {

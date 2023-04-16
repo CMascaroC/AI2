@@ -105,12 +105,26 @@ void mousePressed() {
         println(botones[10]+" pulsado");
         pantalla = PANTALLA.INICIO;
       }
-    } else if (pantalla == PANTALLA.AÑADIR) {
-      for (int i=0; i<4; i++) {
+    }
+
+    //Pantalla de añadir prenda
+    else if (pantalla == PANTALLA.AÑADIR) {
+      for (int i=0; i<6; i++) {
         contadores[i].update();
       }
+      for (int i=3; i<9; i++) {
+        if (camposTexto[i].mouseOverTextField()) {
+          camposTexto[i].selected = true;
+          orden=true;
+        } else {
+          camposTexto[i].selected = false;
+        }
+      }
     }
-  } else {
+  }
+
+  //Pantalla de inicio de sesión
+  else {
     if (pantalla == PANTALLA.REGISTRO) {
       if (camposTexto[1].mouseOverTextField()) {
         camposTexto[1].selected = true;

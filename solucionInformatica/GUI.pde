@@ -4,6 +4,7 @@ Boton[] botones;
 PopUp eliminar;
 CampoTexto[] camposTexto;
 Contador[] contadores;
+String[] tallas = {"XS", "S", "M", "L", "XL", "XXL"};
 
 //Llamada a las funciones para definir cada tipo de elemento
 void setGUI() {
@@ -92,18 +93,24 @@ void crearPopUp() {
 
 //Crear campos de texto
 void crearCampoTexto(){
-  this.camposTexto = new CampoTexto[3];
+  this.camposTexto = new CampoTexto[9];
   
   // buscador
   camposTexto[0] = new CampoTexto(margen1, logoAltura+2*margenL, 250, 40);
   camposTexto[1] = new CampoTexto(710, 500, 500, 50);
   camposTexto[2] = new CampoTexto(710, 650, 500, 50);
+  for(int i=3; i<9;i++){
+    camposTexto[i] = new CampoTexto(1250, 300+100*(i-3), 300, 50);
+    camposTexto[i].rellenarColorSobre = obtenerColorEn(3);
+          camposTexto[i].textoY = camposTexto[i].textoY + 27.5;
+          camposTexto[i].textoX = camposTexto[i].textoX - 30;
+  }
 }
 
 void crearContadores(){
-  this.contadores = new Contador[4];
+  this.contadores = new Contador[6];
   
-  for(int i=0; i<4;i++){
-    contadores[i] = new Contador(1500, 300+100*i, 100, 50);
+  for(int i=0; i<6;i++){
+    contadores[i] = new Contador(1600, 300+100*i, 100, 50);
   }
 }

@@ -2,7 +2,7 @@
 
 class ListaColoresDisponibles {
   //Atributos
-  color[] colors = {color(0), color(255), color(0, 0, 255), color(0, 255, 0), color(255, 0, 0), color(150)};
+  color[] colors = coloresPrendas;
   int[][] cantidades;
   String[] tallasPrendas = new String[6];
   int[] cantCol;
