@@ -42,6 +42,7 @@ void dibujarPantalla1() {
 
 void dibujarPrendasInicio(int x) {
   for (int i=x; i<x+4; i++) {
+    println(prendas.length);
     if (i<prendas.length) {
       prendas[i].dibujarPrendas(i%4);
     }

@@ -20,6 +20,8 @@ void dibujarBarraLateral() {
   }
   
   //Campo de texto de buscador
+  camposTexto[0].textoX = camposTexto[0].x+50;
+  camposTexto[0].textoY = camposTexto[0].y+35;
   camposTexto[0].dibujarCampo();
 
   //Iconos

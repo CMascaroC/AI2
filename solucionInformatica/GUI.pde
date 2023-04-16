@@ -3,12 +3,15 @@ Prenda [] prendas;
 Boton[] botones;
 PopUp eliminar;
 CampoTexto[] camposTexto;
+Contador[] contadores;
 
 //Llamada a las funciones para definir cada tipo de elemento
 void setGUI() {
   crearBotones();
   crearPopUp();
   crearCampoTexto();
+  crearContadores();
+  crearPrendasNoOrden();
 }
 
 //Crear las prendas por orden "aleatorio", segun la inserción en la base de datos
@@ -95,4 +98,12 @@ void crearCampoTexto(){
   camposTexto[0] = new CampoTexto(margen1, logoAltura+2*margenL, 250, 40);
   camposTexto[1] = new CampoTexto(710, 500, 500, 50);
   camposTexto[2] = new CampoTexto(710, 650, 500, 50);
+}
+
+void crearContadores(){
+  this.contadores = new Contador[4];
+  
+  for(int i=0; i<4;i++){
+    contadores[i] = new Contador(1500, 300+100*i, 100, 50);
+  }
 }

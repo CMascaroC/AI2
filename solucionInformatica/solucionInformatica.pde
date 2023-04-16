@@ -1,6 +1,6 @@
 //Variable para cambiar la pantalla
-enum PANTALLA {REGISTRO, INICIO, PRENDA, AÑADIR, ELIMINADOS};
-PANTALLA pantalla = PANTALLA.REGISTRO;
+enum PANTALLA {REGISTRO, INICIO, PRENDA, AÑADIR};
+PANTALLA pantalla = PANTALLA.AÑADIR;
 
 void setup() {
   
@@ -23,7 +23,6 @@ void draw() {
     case REGISTRO:dibujarPantalla0(); break;
     case INICIO: dibujarPantalla1(); break;
     case PRENDA: dibujarPantalla2(); break;
-    case AÑADIR: //dibujarPantalla3(); break;
-    case ELIMINADOS: //dibujarPantalla4(); break;
+    case AÑADIR: dibujarPantalla3(); break;
   }
 }
