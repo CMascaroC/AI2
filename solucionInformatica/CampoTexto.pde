@@ -6,16 +6,19 @@ class CampoTexto {
   float x, y, h, w;
 
   // Colors
-  color rellenarColor = color(obtenerColorEn(2));
-  color rellenarColorSobre = color(obtenerColorEn(1));
+  color rellenarColor = color(230);
+  color rellenarColorSobre = color(obtenerColorEn(6));
   color rellenarColorDeshabilitado = color(150);
   color bordeColor = color(0);
   int grosorBorde = 2;
 
   // Texto del campo
   String texto = "";
+  String noVisible = "";
   int textLength = 0;
   int textSize = 24;
+  float textoX, textoY;
+  boolean visible = true;
 
   //Está seleccionado
   boolean selected = false;
@@ -26,17 +29,17 @@ class CampoTexto {
     this.y = y;
     this.w = w;
     this.h = h;
+    this.textoX = x+50;
+    this.textoY = y+textSize/2-5;
   }
 
   // Dibujar el campo de texto
   void dibujarCampo() {
     pushMatrix();
-    
+
     textAlign(LEFT);
     if (selected) {
       fill(rellenarColorSobre);
-      pagina=0;
-      crearPrendasTexto(camposTexto[0].texto);
     } else {
       fill(rellenarColor);
     }
@@ -47,7 +50,8 @@ class CampoTexto {
 
     fill(0);
     textSize(textSize);
-    text(texto, x + 50, y + textSize+5);
+    println(texto);
+    text(texto, textoX, textoY);
     popMatrix();
   }
 
@@ -74,8 +78,14 @@ class CampoTexto {
   //Añadir letra al final
   void addText(char c) {
     if (textWidth(this.texto + c) < w) {
-      this.texto += c;
-      textLength++;
+      if (visible) {
+        this.texto += c;
+        textLength++;
+      } else{
+        this.noVisible +=c;
+        this.texto += "*";
+        textLength++;
+      }
     }
   }
 
@@ -99,5 +109,4 @@ class CampoTexto {
 
   // Selecciona el camp de text si pitjam a sobre
   // Deselecciona el camp de text si pitjam a fora
-  
 }

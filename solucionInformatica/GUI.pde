@@ -70,7 +70,7 @@ void crearBotones() {
 
   botones[0] = new Boton("Añadir", margen1, 700, 250, 60, 30);
   botones[1] = new Boton("Sin Stock", margen1, 800, 250, 60, 30);
-  botones[2] = new Boton("", margen1, logoAltura+2*margenL, 250, 40, 20);
+  botones[2] = new Boton("Introducir", width/2-125, 800, 250, 60, 30);
   botones[3] = new Boton("Por modelo", margen2, 465, 200, 50, 20);
   botones[4] = new Boton("Por cantidad", margen2, 575, 200, 50, 20);
   botones[5] = new Boton("Editar", 1100, 800, 250, 60, 30);
@@ -89,8 +89,10 @@ void crearPopUp() {
 
 //Crear campos de texto
 void crearCampoTexto(){
-  this.camposTexto = new CampoTexto[1];
+  this.camposTexto = new CampoTexto[3];
   
   // buscador
   camposTexto[0] = new CampoTexto(margen1, logoAltura+2*margenL, 250, 40);
+  camposTexto[1] = new CampoTexto(710, 500, 500, 50);
+  camposTexto[2] = new CampoTexto(710, 650, 500, 50);
 }

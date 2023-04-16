@@ -1,6 +1,6 @@
 //Variable para cambiar la pantalla
-enum PANTALLA {INICIO, PRENDA, AÑADIR, ELIMINADOS};
-PANTALLA pantalla = PANTALLA.INICIO;
+enum PANTALLA {REGISTRO, INICIO, PRENDA, AÑADIR, ELIMINADOS};
+PANTALLA pantalla = PANTALLA.REGISTRO;
 
 void setup() {
   
@@ -20,6 +20,7 @@ void draw() {
   
   //Dibujar cada pantalla según el valor de la variable de control
   switch(pantalla){
+    case REGISTRO:dibujarPantalla0(); break;
     case INICIO: dibujarPantalla1(); break;
     case PRENDA: dibujarPantalla2(); break;
     case AÑADIR: //dibujarPantalla3(); break;

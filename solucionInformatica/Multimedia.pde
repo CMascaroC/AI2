@@ -37,6 +37,11 @@ void asignarMultimedia() {
   this.tipografias[2] = createFont(URL_TIPOGRAFIAS+"VeraMono.ttf", 12);
 }
 
+//Getter tipografia
+PFont obtenerTipografiaEn(int i){
+  return this.tipografias[i];
+}
+
 // Getter del número de imagenes
 int obtenerNumImagenes() {
   return this.imgs.length;

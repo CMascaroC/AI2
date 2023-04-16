@@ -48,6 +48,35 @@ void mousePressed() {
     } else {
       camposTexto[0].selected = false;
     }
+    
+  if(pantalla == PANTALLA.REGISTRO){
+    if (camposTexto[1].mouseOverTextField()) {
+      camposTexto[1].selected = true;
+      orden=true;
+    } else {
+      camposTexto[1].selected = false;
+    }
+    
+    if (camposTexto[2].mouseOverTextField()) {
+      camposTexto[2].selected = true;
+      orden=true;
+    } else {
+      camposTexto[2].selected = false;
+    }
+    
+    if (botones[2].ratonSobreBoton() && botones[2].dibujado) {
+      //println(botones[2]+" pulsado");
+      if (camposTexto[1].texto == "GraficSolutions" && camposTexto[2].noVisible == "12345"){
+        pantalla = PANTALLA.INICIO;
+      } else{
+        camposTexto[1].texto = "";
+        camposTexto[2].texto = "";
+        camposTexto[2].noVisible = "";
+        camposTexto[1].rellenarColor = obtenerColorEn(5);
+        camposTexto[2].rellenarColor = obtenerColorEn(5);
+      }
+    }
+  }
   
   //Pantalla Inicio
   if (pantalla == PANTALLA.INICIO) {
