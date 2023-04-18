@@ -46,6 +46,7 @@ void mousePressed() {
 
     if (camposTexto[0].mouseOverTextField()) {
       camposTexto[0].selected = true;
+      println(camposTexto[0].texto);
       orden=true;
     } else {
       camposTexto[0].selected = false;

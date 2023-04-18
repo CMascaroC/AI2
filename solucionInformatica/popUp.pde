@@ -6,7 +6,6 @@ class PopUp {
   float x, y, w, h;
 
   // Propiedades
-  PImage img;
   String title;
   String message;
 
@@ -23,10 +22,6 @@ class PopUp {
   }
 
   //Setters
-
-  void setImage(PImage img) {
-    this.img = img;
-  }
 
   void setTexts(String title, String message) {
     this.title = title;
